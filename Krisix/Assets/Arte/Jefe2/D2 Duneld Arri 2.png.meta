@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      D2 Duneld Arri 2_0: -7378129078504119243
+      D2 Duneld Arri 2_1: 8012086221179184701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

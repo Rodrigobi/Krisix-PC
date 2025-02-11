@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Aldea Plaza_0: -1481168202103926083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

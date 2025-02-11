@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      B5 insecto izquierda 1_0: 270114034382646330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

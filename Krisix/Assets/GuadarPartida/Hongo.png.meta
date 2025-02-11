@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hongo_0: -4085098773795274061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

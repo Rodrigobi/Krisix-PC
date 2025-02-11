@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BalaH1 arr_0: 7806838409899968989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

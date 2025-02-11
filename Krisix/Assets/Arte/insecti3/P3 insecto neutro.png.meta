@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      P3 insecto neutro_0: 6121670988221588479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
