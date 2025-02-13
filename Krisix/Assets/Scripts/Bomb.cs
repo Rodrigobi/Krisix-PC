@@ -8,6 +8,13 @@ public class Bomb : MonoBehaviour
     public LayerMask wallLayer; // Capa que representa los muros
     public LayerMask damageableLayer; // Capa de objetos que pueden recibir daño
 
+    // Prefabs de las explosiones
+    public GameObject explosionCenterPrefab;
+    public GameObject explosionUpPrefab;
+    public GameObject explosionDownPrefab;
+    public GameObject explosionLeftPrefab;
+    public GameObject explosionRightPrefab;
+
     void Start()
     {
         // Iniciar la explosión después de un tiempo
@@ -16,23 +23,26 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
-        // Explosión en las cuatro direcciones (arriba, abajo, izquierda, derecha)
-        ExplodeInDirection(Vector2.up);
-        ExplodeInDirection(Vector2.down);
-        ExplodeInDirection(Vector2.left);
-        ExplodeInDirection(Vector2.right);
+        // Instanciar el centro de la explosión
+        Instantiate(explosionCenterPrefab, transform.position, Quaternion.identity);
+
+        // Explosión en las cuatro direcciones
+        ExplodeInDirection(Vector2.up, explosionUpPrefab);
+        ExplodeInDirection(Vector2.down, explosionDownPrefab);
+        ExplodeInDirection(Vector2.left, explosionLeftPrefab);
+        ExplodeInDirection(Vector2.right, explosionRightPrefab);
 
         // Destruir la bomba tras la explosión
         Destroy(gameObject);
     }
 
-    void ExplodeInDirection(Vector2 direction)
+    void ExplodeInDirection(Vector2 direction, GameObject explosionPrefab)
     {
         // Posición inicial de la explosión
         Vector2 startPos = transform.position;
 
         // Recorrer la explosión en segmentos, hasta alcanzar el radio máximo
-        for (float distance = 0; distance <= explosionRadius; distance += 1f)
+        for (float distance = 1f; distance <= explosionRadius; distance += 1f)
         {
             Vector2 currentPos = startPos + direction * distance;
 
@@ -42,6 +52,12 @@ public class Bomb : MonoBehaviour
             {
                 // Si hay un muro, detener la explosión en esa dirección
                 break;
+            }
+
+            // Instanciar la explosión en la dirección actual
+            if (explosionPrefab != null)
+            {
+                Instantiate(explosionPrefab, currentPos, Quaternion.identity);
             }
 
             // Verificar si hay objetos dañables en esta posición
@@ -61,16 +77,7 @@ public class Bomb : MonoBehaviour
                     destructible.DestroyObject();
                 }
             }
-
-            // Opcional: Crear un efecto visual de explosión en esta posición
-            CreateExplosionEffect(currentPos);
         }
-    }
-
-    void CreateExplosionEffect(Vector2 position)
-    {
-        // Aquí puedes instanciar un prefab de explosión, si tienes uno
-        Debug.Log($"Explosión en: {position}");
     }
 
     void OnDrawGizmosSelected()
@@ -80,4 +87,3 @@ public class Bomb : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }
-
